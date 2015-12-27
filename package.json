@@ -1,0 +1,30 @@
+{
+  "name": "ccjmne-angular-seed",
+  "description": "An AngularJS project with Gulp, JSHint, Browserify and a LiveReload server.",
+  "scripts": {
+    "start": "gulp build serve watch"
+  },
+  "browser": {
+    "angular": "./bower_components/angular/angular.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "angular": {
+      "exports": "angular"
+    }
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "browserify-shim": "^3.8.11",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-webserver": "^0.9.1",
+    "jshint": "^2.9.1-rc2",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
