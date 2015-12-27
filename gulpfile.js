@@ -1,8 +1,17 @@
 var browserify = require('browserify'),
 	gulp = require('gulp'),
+	gulpif = require('gulp-if'),
 	jshint = require('gulp-jshint'),
+	uglify = require('gulp-uglify'),
 	webserver = require('gulp-webserver'),
+	buffer = require('vinyl-buffer'),
 	source = require('vinyl-source-stream');
+
+var prod = true;
+
+gulp.task('dev', function () {
+	prod = false;
+});
 
 gulp.task('build', function () {
 	lint();
@@ -33,6 +42,8 @@ function bundlejs() {
 	browserify('./app/app.js')
 		.bundle()
 		.pipe(source('bundle.js'))
+		.pipe(buffer())
+		.pipe(gulpif(prod, uglify()))
 		.pipe(gulp.dest('./build'));
 }
 
