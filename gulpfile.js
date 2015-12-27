@@ -6,7 +6,7 @@ var browserify = require('browserify'),
 
 gulp.task('build', function () {
 	lint();
-	browserify();
+	bundlejs();
 	views();
 	images();
 });
