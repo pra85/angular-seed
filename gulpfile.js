@@ -43,7 +43,7 @@ function bundlejs() {
 		.bundle()
 		.pipe(source('bundle.js'))
 		.pipe(buffer())
-		.pipe(gulpif(prod, uglify()))
+		.pipe(gulpif(prod, uglify({"mangle":false})))
 		.pipe(gulp.dest('./build'));
 }
 
