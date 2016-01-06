@@ -1,4 +1,5 @@
 var browserify = require('browserify'),
+	parcelify = require('parcelify'),
 	gulp = require('gulp'),
 	gulpif = require('gulp-if'),
 	jshint = require('gulp-jshint'),
@@ -39,12 +40,23 @@ function lint() {
 
 gulp.task('browserify', bundlejs);
 function bundlejs() {
-	browserify('./app/app.js')
-		.bundle()
-		.pipe(source('bundle.js'))
-		.pipe(buffer())
-		.pipe(gulpif(prod, uglify({"mangle":false})))
-		.pipe(gulp.dest('./build'));
+	var parcelifyDest = 'build/bundle.css';
+	var b = browserify({
+	        entries: './app/app.js',
+	        debug: true
+	    })
+
+	parcelify(b, {
+            bundles : {
+  				style : parcelifyDest   // bundle `style` assets and output here
+			}
+    })
+
+	b.bundle()
+	.pipe(source('bundle.js'))
+	.pipe(buffer())
+	.pipe(gulpif(prod, uglify({"mangle":false})))
+	.pipe(gulp.dest('./build'));
 }
 
 gulp.task('views', views);
