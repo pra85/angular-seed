@@ -6,7 +6,6 @@
   },
   "devDependencies": {
     "browserify": "^12.0.1",
-    "browserify-shim": "^3.8.11",
     "gulp": "^3.9.0",
     "gulp-if": "^2.0.0",
     "gulp-jshint": "^2.0.0",
@@ -14,6 +13,7 @@
     "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.9.1",
     "jshint": "^2.9.1-rc2",
+    "parcelify": "^2.1.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
