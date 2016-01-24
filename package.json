@@ -4,6 +4,9 @@
   "scripts": {
     "start": "gulp dev build serve watch"
   },
+  "style":[
+    "app/style/style.css"
+   ],
   "devDependencies": {
     "browserify": "^12.0.1",
     "gulp": "^3.9.0",
